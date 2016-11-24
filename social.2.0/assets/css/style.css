@@ -1,0 +1,198 @@
+/*----------------------------
+    The file upload form
+-----------------------------*/
+
+
+#upload{
+margin: 1%;
+    padding:15px;
+    border-radius:3px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#drop{
+
+background-color: rgba(255, 255, 255, 0.8);
+border: 20px solid transparent;
+border-radius: 3px;
+text-align: center;
+text-transform: uppercase;
+font-size: 16px;
+font-weight: bold;
+color: #7F858A;
+}
+
+#drop a{
+background-color: #0BA2C5;
+padding: 12px 26px;
+color: white;
+font-size: 14px;
+border-radius: 2px;
+cursor: pointer;
+display: inline-block;
+margin-top: 12px;
+line-height: 1;
+}
+
+#drop a:hover{
+    background-color:#0DABCF;
+}
+
+#drop input{
+    display:none;
+}
+
+#photos li{
+display: block;
+    background-color:#333639;
+    background-image:-webkit-linear-gradient(top, #333639, #303335);
+    background-image:-moz-linear-gradient(top, #333639, #303335);
+    background-image:linear-gradient(top, #333639, #303335);
+    border-top:1px solid #3d4043;
+    border-bottom:1px solid #2b2e31;
+    height: 52px;
+    position: relative;
+}
+
+#photos li input{
+    display: none;
+}
+
+#photos li p{
+    width: 144px;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #EEE;
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    top: -5px;
+    left: 75px;
+}
+
+#photos li i{
+    font-weight: normal;
+    font-style:normal;
+    color:#7f7f7f;
+    display:block;
+}
+
+#photos li canvas{
+    top: 15px;
+    left: 32px;
+    position: absolute;
+}
+
+#photos li span{
+    width: 15px;
+    height: 12px;
+    background: url('../img/icons.png') no-repeat;
+    position: absolute;
+    top: 34px;
+    right: 33px;
+    cursor:pointer;
+}
+
+#photos li.working span{
+    height: 16px;
+    background-position: 0 -12px;
+}
+
+#photos li.error p{
+    color:red;
+}
+
+#upload2{
+margin: 1%;
+    padding:15px;
+    border-radius:3px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#drop2{
+
+background-color: rgba(255, 255, 255, 0.8);
+border: 20px solid transparent;
+border-radius: 3px;
+text-align: center;
+text-transform: uppercase;
+font-size: 16px;
+font-weight: bold;
+color: #7F858A;
+}
+
+#drop2 a{
+background-color: #0BA2C5;
+padding: 12px 26px;
+color: white;
+font-size: 14px;
+border-radius: 2px;
+cursor: pointer;
+display: inline-block;
+margin-top: 12px;
+line-height: 1;
+}
+
+#drop2 a:hover{
+    background-color:#0DABCF;
+}
+
+#photos2 li{
+display: block;
+    background-color:#333639;
+    background-image:-webkit-linear-gradient(top, #333639, #303335);
+    background-image:-moz-linear-gradient(top, #333639, #303335);
+    background-image:linear-gradient(top, #333639, #303335);
+    border-top:1px solid #3d4043;
+    border-bottom:1px solid #2b2e31;
+    height: 52px;
+    position: relative;
+}
+
+#photos2 li input{
+    display: none;
+}
+
+#photos2 li p{
+    width: 144px;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #EEE;
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    top: -5px;
+    left: 75px;
+}
+
+#photos2 li i{
+    font-weight: normal;
+    font-style:normal;
+    color:#7f7f7f;
+    display:block;
+}
+
+#photos2 li canvas{
+    top: 15px;
+    left: 32px;
+    position: absolute;
+}
+
+#photos2 li span{
+    width: 15px;
+    height: 12px;
+    background: url('../img/icons.png') no-repeat;
+    position: absolute;
+    top: 34px;
+    right: 33px;
+    cursor:pointer;
+}
+
+#photos2 li.working span{
+    height: 16px;
+    background-position: 0 -12px;
+}
+
+#photos2 li.error p{
+    color:red;
+}

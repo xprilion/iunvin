@@ -1,0 +1,1 @@
+<?php HEADER('Location: /new'); ?>

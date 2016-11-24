@@ -1,0 +1,8 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} =-f
+RewriteRule ^(.*)\.php$ $1.iunv [NC,L]
+RewriteRule ^(.*)\.iunv$  $1.php [NC,L]
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^ %{REQUEST_URI}.php [L]
+
+

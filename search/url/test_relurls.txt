@@ -1,0 +1,112 @@
+; Test relative-to-absolute URL conversion
+;
+
+; base URL			relative URL				result URL
+
+TITLE	Fail on unparsable relative URL
+http://example.com/path?bq#bf	bad://\slash.com/brac[kets]		FAIL
+
+TITLE	Relative URL has scheme, only remove dots from path if hierarchical
+http://example.com/path?bq#bf	http://whatever.com/path/./here?rq#rf	http://whatever.com/path/here?rq#rf
+http://example.com/path?bq#bf	http://whatever.com/path/../here?rq#rf	http://whatever.com/here?rq#rf
+http://example.com/path?bq#bf	mailto:user@example.com?subject=hi	mailto:user@example.com?subject=hi
+mailto:bob@example.com		mailto:user@whatever.com		mailto:user@whatever.com
+mailto:bob@example.com		mailto:user/../whatever.com		mailto:user/../whatever.com
+
+TITLE	Fail on unparsable base URL
+bad://\slash.com/brac[kets]	/path/./here?rq#rf			FAIL
+
+TITLE	Fail on non-absolute base URL missing scheme or host
+//example.com/path?bq#bf	/path/./here?rq#rf			FAIL
+///path?bq#bf			/path/./here?rq#rf			FAIL
+/path?bq#bf			/path/./here?rq#rf			FAIL
+http:/path?bq#bf		/path/./here?rq#rf			FAIL
+path?bq#bf			/path/./here?rq#rf			FAIL
+http:path?bq#bf			/path/./here?rq#rf			FAIL
+?bq#bf				/path/./here?rq#rf			FAIL
+http:?bq#bf			/path/./here?rq#rf			FAIL
+#bf				/path/./here?rq#rf			FAIL
+http:#bf			/path/./here?rq#rf			FAIL
+mailto:user@example.com		/path					FAIL
+mailto:user@example.com		//whatever.com/path			FAIL
+
+TITLE	Relative URL has authority, fill in scheme and remove dots from path
+http://example.com/path?bq#bf	//whatever.com				http://whatever.com
+http://example.com/path?bq#bf	//127.0.0.1				http://127.0.0.1
+http://example.com/path?bq#bf	//whatever.com/				http://whatever.com/
+http://example.com/path?bq#bf	//127.0.0.1/				http://127.0.0.1/
+http://example.com/path?bq#bf	//whatever.com/rpath			http://whatever.com/rpath
+http://example.com/path?bq#bf	//whatever.com/rpath/?rq#rf		http://whatever.com/rpath/?rq#rf
+http://example.com/path?bq#bf	//					http://
+http://example.com/path?bq#bf	///rpath/?rq#rf				http:///rpath/?rq#rf
+http://example.com/path?bq#bf	///?rq#rf				http:///?rq#rf
+
+TITLE	Relative URL has absolute path but no scheme or authority, so fill in both and remove dots from path
+http://example.com/path?bq#bf	/					http://example.com/
+http://example.com/path?bq#bf	/.					http://example.com/
+http://example.com/path?bq#bf	/..					http://example.com/
+http://example.com/path?bq#bf	/rpath					http://example.com/rpath
+http://example.com/path?bq#bf	/rpath/					http://example.com/rpath/
+http://example.com/path?bq#bf	/rpath/.				http://example.com/rpath
+http://example.com/path?bq#bf	/rpath/./				http://example.com/rpath/
+http://example.com/path?bq#bf	/rpath/../				http://example.com/
+http://example.com/path?bq#bf	/rpath/../here				http://example.com/here
+http://example.com/path?bq#bf	/rpath/?rq#rf				http://example.com/rpath/?rq#rf
+http://example.com/path?bq#bf	/rpath/..?rq#rf				http://example.com/?rq#rf
+
+TITLE	Relative URL has no scheme, authority, or path, so fill in (only case where base query is copied)
+http://example.com/path?bq#bf	?rq#rf					http://example.com/path?rq#rf
+http://example.com/path?bq#bf	?#rf					http://example.com/path?#rf
+http://example.com/path?bq#bf	?#					http://example.com/path?#
+http://example.com/path?bq#bf	?					http://example.com/path?
+http://example.com/path?bq#bf	#rf					http://example.com/path?bq#rf
+http://example.com/path?bq#bf	#					http://example.com/path?bq#
+
+TITLE	Relative URL has relative path, so merge paths and remove dots from path
+http://example.com		rpath					http://example.com/rpath
+http://example.com/		rpath					http://example.com/rpath
+http://example.com/?bq#bf	rpath					http://example.com/rpath
+http://example.com/path		rpath					http://example.com/rpath
+http://example.com/path?bq#bf	rpath					http://example.com/rpath
+http://example.com/path?bq#bf	rpath/here				http://example.com/rpath/here
+http://example.com/path?bq#bf	rpath/..				http://example.com/
+http://example.com/path?bq#bf	..					http://example.com/
+http://example.com/path?bq#bf	rpath/here#rf				http://example.com/rpath/here#rf
+http://example.com/path?bq#bf	rpath/here?rq				http://example.com/rpath/here?rq
+http://example.com/path?bq#bf	rpath/here?rq#rf			http://example.com/rpath/here?rq#rf
+http://example.com/path/base		rpath				http://example.com/path/rpath
+http://example.com/path/?bq#bf		rpath				http://example.com/path/rpath
+http://example.com/path/base?bq#bf	rpath				http://example.com/path/rpath
+http://example.com/path/base?bq#bf	rpath/here			http://example.com/path/rpath/here
+http://example.com/path/base?bq#bf	rpath/here?rq#rf		http://example.com/path/rpath/here?rq#rf
+http://example.com/path/base/..		rpath				http://example.com/path/base/rpath
+http://example.com/path/base/../	rpath				http://example.com/path/rpath
+http://example.com/path/./base/../	rpath				http://example.com/path/rpath
+http://example.com/path/../base		rpath				http://example.com/rpath
+http://example.com/path/../base/..	rpath				http://example.com/base/rpath
+http://example.com/path/../base/../	rpath				http://example.com/rpath
+
+TITLE	Remove single dots in path
+http://example.com/path		.					http://example.com/
+http://example.com/path		/.					http://example.com/
+http://example.com/path		/./					http://example.com/
+http://example.com/path		/./.					http://example.com/
+http://example.com/path		/././					http://example.com/
+http://example.com/path		/a/./b/.				http://example.com/a/b
+http://example.com/path		/a/./b/./				http://example.com/a/b/
+http://example.com/path		././b/./				http://example.com/b/
+
+TITLE	Remove previous segment on double dots in path
+http://example.com/path		..					http://example.com/
+http://example.com/path		/..					http://example.com/
+http://example.com/path		/../					http://example.com/
+http://example.com/path		../					http://example.com/
+http://example.com/path		../../					http://example.com/
+http://example.com/path		../../..				http://example.com/
+http://example.com/path		a/../../../				http://example.com/
+http://example.com/path		/a/../../../				http://example.com/
+http://example.com/path		/a/b/c/./../../g			http://example.com/a/g
+http://example.com/path		mid/content=5/../6			http://example.com/mid/6
+
+TITLE	Do nothing to tripple dots in path
+http://example.com/path		blah/.../foo				http://example.com/blah/.../foo

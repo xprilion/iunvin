@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTP_COOKIE} !iunv_sessid= [NC]
+RewriteRule .* http://localhost/login [L]

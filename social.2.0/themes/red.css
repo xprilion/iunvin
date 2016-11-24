@@ -1,0 +1,85 @@
+#wrapper{
+font-family:Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+background-size: 100% 100%;
+}
+
+.portsa{
+color: red;
+-webkit-transition: background 0.5s;
+}
+
+.portsa:hover{
+-webkit-transition: background 0.5s;
+background: #FA8D5A;
+color: #fff;
+}
+
+.appTop{
+background: rgba(255, 75, 18, 0.8);
+color: #fff;
+}
+
+#bUser{
+background: red;
+}
+
+#bUserMenu{
+background: #dfdfdf;
+}
+
+#bUserMenu li{
+background: #d0d0d0;
+}
+
+#mainMenu{
+background: rgba(253, 5, 5, 0.3);
+}
+
+.mainli{
+background: rgba(250, 16, 16, 0.6);
+text-shadow: 1px 1px 1px #5F5F5F;
+}
+
+.mainli:hover{
+background: rgba(224, 255, 0, 0.5);
+}
+
+.typeinactive{
+background: rgba(255, 141, 18, 0.9);
+color: #fff;
+}
+
+.typeinactive:hover{
+background: #fff;
+color: #000;
+}
+.typeactive{
+background: #0f0;
+}
+
+#uMen{
+background: #FF5E12;
+}
+
+.uMenOin{
+box-shadow: 0px 0px 2px 0px #f00 inset;
+border: 1px solid #0D79CE;
+background: #fff;
+}
+
+.notifys{
+color: #2c2c2c;
+text-shadow: 1px 1px 1px #dfdfdf;
+border: 1px solid #b8b2b2;
+}
+
+.notifys:hover{
+border: 1px solid #1288ff;
+}
+.notifunseen{
+background: #ff0;
+}
+
+.notifseen{
+background: rgba(187, 187, 187, 0.2);
+}

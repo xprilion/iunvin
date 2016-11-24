@@ -1,0 +1,173 @@
+<style>
+
+#chatBarIn{
+position: fixed;
+bottom: 0px;
+left: 0px;
+width: 13%;
+height: 5%;
+background: white;
+z-index: 1000000;
+cursor: pointer;
+}
+
+#chatBarIn:hover #chatBarRoot{
+background: #dfdfdf;
+}
+
+#chatBarRootNumOnline{
+display: inline;
+}
+
+#chatBarRoot{
+line-height: 30px;
+height: 100%;
+width: 80%;
+text-align: center;
+cursor: pointer;
+}
+
+#chatBarRoot:hover{
+background: #dcdcdc;
+}
+
+#chatBarOut{
+height: 40%;
+width: 13%;
+background: rgba(255, 255, 255, 0.5);
+position: fixed;
+bottom: 5%;
+left: 0px;
+display: none;
+border-bottom: 1px dashed #cdcdcd;
+}
+
+.chatter{
+display: block;
+padding: 2% 5%;
+cursor: default;
+}
+
+.chatter:hover{
+background: rgba(255, 255, 255, 0.6);
+}
+
+.chatBox{
+height: 45%;
+width: 25%;
+display: block;
+position: fixed;
+background: white;
+bottom: 0px;
+z-index: 1000000;
+box-shadow: 0px 0px 20px 0px #BFBFBF;
+border: 1px solid #cdcdcd;
+-webkit-transition: bottom 0.5s;
+}
+
+.firstC{
+left: 15%;
+-webkit-transition: left 0.5s;
+}
+.secondC{
+left: 42.5%;
+-webkit-transition: left 0.5s;
+}
+
+.thirdC{
+left: 70%;
+-webkit-transition: left 0.5s;
+}
+
+.chatCurtain{
+height: 100%;
+width: 100%;
+display: block;
+background: #cdcdcd;
+}
+
+.chatCurtain img{
+margin-left: 45%;
+margin-top: 25%;
+}
+
+.chatTitle{
+padding: 2% 2%;
+width: 96%;
+background: #1288ff;
+color: #fff;
+font-weight: bold;
+cursor: pointer;
+}
+
+.chatTitle:hover{
+background: #12ccff;
+}
+
+.botomPo{
+-webkit-transition: bottom 0.5s;
+bottom: -41%;
+}
+
+.chatInput{
+position: absolute;
+bottom: 0px;
+width: 97%;
+padding: 1% 1%;
+border: 0px;
+border-top: 1px dashed #CDCDCD;
+height: 15%;
+resize: none;
+outline: none;
+}
+
+.chatBoxMain{
+height: 73%;
+overflow-y: scroll;
+}
+
+.cMes{
+display: block;
+width: 96%;
+padding: 1% 2%;
+}
+
+.cMe{
+background: #dcdcdc;
+}
+
+.cDe{
+background: #ff0;
+}
+
+.chatClose{
+display: inline-block;
+width: 1px;
+height: 1px;
+float: right;
+padding: 3% 5% 8% 5%;
+text-indent: -6px;
+cursor: pointer;
+}
+
+#chatStatus{
+height: 1px;
+width: 1px;
+display: inline-block;
+padding: 13% 10%;
+}
+
+.Pen{
+background: #ff0;
+}
+
+.onchat{
+border-right: 20px solid #BAF7BA;
+}
+
+.offchat{
+border-right: 20px solid #C9c9c9;
+}
+
+
+</style>

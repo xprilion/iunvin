@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteRule ^([a-z]+[0-9]+)$ /new/index.php?page=$1
+RewriteRule ^([a-z]+)$ /new/index.php?page=$1
+RewriteRule ^([0-9]+)$ /new/modules/story/index.php?refid=$1
